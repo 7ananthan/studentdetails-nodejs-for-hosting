@@ -4,7 +4,7 @@ var bodyParser =require('body-parser');
 var app=express();
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.post('',(req, res )=>{
+app.post('/',(req, res )=>{
 
     var name =req.body.getname;
     var roll =req.body.getroll;
