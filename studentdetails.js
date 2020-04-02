@@ -4,12 +4,12 @@ var bodyParser =require('body-parser');
 var app=express();
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.post('/',(req, res )=>{
+app.get('/',(req, res )=>{
 
     res.send("hai..");
 });
 
-app.post('/reg',(req, res )=>{
+app.get('/reg',(req, res )=>{
 
     var name =req.body.getname;
     var roll =req.body.getroll;
