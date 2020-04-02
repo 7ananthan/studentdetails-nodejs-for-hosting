@@ -6,6 +6,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 app.post('/',(req, res )=>{
 
+    res.send("hai..");
+});
+
+app.post('/reg',(req, res )=>{
+
     var name =req.body.getname;
     var roll =req.body.getroll;
     var adminNo=req.body.getadminNo;
