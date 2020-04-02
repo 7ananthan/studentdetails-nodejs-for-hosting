@@ -2,7 +2,7 @@
   "name": "student-details",
   "version": "1.0.0",
   "description": "student details",
-  "main": "index.js",
+  "main": "studentdetails.js",
   "scripts": {
     "start": "node studentdetails.js"
   },
