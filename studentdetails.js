@@ -17,14 +17,14 @@ const studentSchema =new Mongoose.Schema(
 
  var studentModel = Mongoose.model('students', studentSchema)
 
- Mongoose.connect ("mongodb+srv://7ananthan:L7&$P4p:77sG%,j@cluster0-fcx3v.mongodb.net/test?retryWrites=true&w=majority")
+ Mongoose.connect("mongodb+srv://7ananthan:L7&$P4p:77sG%,j@cluster0-fcx3v.mongodb.net/test?retryWrites=true&w=majority");
 
 app.get('/',(req, res )=>{
 
     res.send("hai..");
 });
 
-app.post('/reg',async(req, res )=>{
+app.post('/reg', async(req, res )=>{
 
     try {
         var studentData =new studentModel(req.body);
