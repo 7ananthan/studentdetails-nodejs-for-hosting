@@ -1,22 +1,43 @@
 var express =require('express');
 var bodyParser =require('body-parser');
+var Mongoose =require('mongoose');
+
 
 var app=express();
 app.use(bodyParser.urlencoded({extended: false}))
+
+const studentSchema =new Mongoose.Schema(
+    {
+        name: String,
+        roll: Number,
+        adminNo: Number,
+        clg: String
+    }
+ );
+
+ var studentModel = Mongoose.model('students', studentSchema)
+
+ Mongoose.connect ("mongodb+srv://7ananthan:L7&$P4p:77sG%,j@cluster0-fcx3v.mongodb.net/test?retryWrites=true&w=majority")
 
 app.get('/',(req, res )=>{
 
     res.send("hai..");
 });
 
-app.get('/reg',(req, res )=>{
+app.post('/reg',async(req, res )=>{
 
-    var name =req.body.getname;
-    var roll =req.body.getroll;
-    var adminNo=req.body.getadminNo;
-    var college=req.body.getclg;
+    try {
+        var studentData =new studentModel(req.body);
+        var result = await studentData.save();
 
-    res.json(req.body);
+        res.json(result);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+
+    
 });
 
 app.listen(process.env.PORT || 3000, () => {
