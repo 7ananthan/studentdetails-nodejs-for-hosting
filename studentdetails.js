@@ -4,18 +4,18 @@ var Mongoose =require('mongoose');
 
 
 var app=express();
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 
-const studentSchema =new Mongoose.Schema(
-    {
+const studentSchema =new Mongoose.Schema( {
         name: String,
         roll: Number,
         adminNo: Number,
         clg: String
-    }
- );
+    });
 
- var studentModel = Mongoose.model('students', studentSchema)
+ var studentModel = Mongoose.model('students', studentSchema);
 
  Mongoose.connect("mongodb+srv://7ananthan:L7&$P4p:77sG%,j@cluster0-fcx3v.mongodb.net/test?retryWrites=true&w=majority");
 
