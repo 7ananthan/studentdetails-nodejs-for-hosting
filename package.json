@@ -4,7 +4,7 @@
   "description": "\"student details\"",
   "main": "studentdetails.js",
   "scripts": {
-    "start": "student.js"
+    "start": "node student.js"
   },
   "repository": {
     "type": "git",
