@@ -32,6 +32,7 @@ app.post('/reg',async(req,res)=>{
 app.get('/viewall',async(req,res)=>{
     try {
         var result =await studentmodel.find();
+        res.send(result);
     } catch (error) {
         console.log(error);
         res.status(500).send(error);
