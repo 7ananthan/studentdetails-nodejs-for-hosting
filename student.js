@@ -29,6 +29,31 @@ app.post('/reg',async(req,res)=>{
         res.status(500).send(error);     
     }
 });
+app.get('/viewall',async(req,res)=>{
+    try {
+        var result =await studentmodel.find();
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+})
+app.post('/search',async(req,res)=>{
+    try {
+        studentmodel.find(req.body,(error,data)=> {
+            if (error) {
+                throw error;
+            } else {
+                res.send(data);
+            }
+
+        });
+        res.send(result);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+})
 app.listen(process.env.PORT || 3000,()=>{
     console.log("server started");
 });
